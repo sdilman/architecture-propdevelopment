@@ -1,0 +1,29 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: buyer-bnd
+  namespace: buyer-services
+subjects:
+- kind: Group
+  name: buyers
+  apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: Role
+  name: buyer
+  apiGroup: rbac.authorization.k8s.io
+
+---
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: owner-bnd
+  namespace: owner-community-services
+subjects:
+- kind: Group
+  name: owners
+  apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: Role
+  name: owner
+  apiGroup: rbac.authorization.k8s.io
